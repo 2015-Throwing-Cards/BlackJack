@@ -46,7 +46,7 @@ public class Olde_Deck {
                 //for each number
                 for (int n = 1; n <= 13; n++) {
                     //add a new card to the deck
-                    this.myCards[c] = new Card(Suit.values()[s], n);
+//                    this.myCards[c] = new Card(Suit.values()[s], n);
                     c++;
                 }
 

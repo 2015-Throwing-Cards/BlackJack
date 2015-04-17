@@ -18,33 +18,29 @@ public class Card {
 
     //one of the 4 valid suits for this card.
 
-    private Suit mySuit;
+    private Suit suit;
     //the number of this card, where Ace:1, Jack-King: 11-13
-    private int myNumber;
+    private int ordinal;
+    private int value;
 
     //aSuit is the suit of the card
     //aNumber is the number of the card
-    public Card(Suit aSuit, int aNumber) {
-        this.mySuit = aSuit;
-//        if (aNumber >= 1 && aNumber <= 13) {
-//
-//        } else {
-//            System.err.println(aNumber + "is not a valid Card number");
-//            System.exit(1);
-//        }
-        this.myNumber = aNumber;
-
+    public Card(Suit aSuit, int ordinal, int value) {
+        this.suit = aSuit;
+        this.ordinal = ordinal;
+        this.value = value;
     }
 
-    public Card(Suit aSuit, int aNumber, Image face) {
-        this.mySuit = aSuit;
-        if (aNumber >= 1 && aNumber <= 13) {
-
-        } else {
-            System.err.println(aNumber + "is not a valid Card number");
-            System.exit(1);
-        }
-        this.myNumber = aNumber;
+    public Card(Suit suit, int ordinal, int value, Image face) {
+        this.suit = suit;
+//        if (ordinal >= 1 && ordinal <= 13) {
+//
+//        } else {
+//            System.err.println(ordinal + "is not a valid Card number");
+//            System.exit(1);
+//        }
+        this.ordinal = ordinal;
+        this.value = value;
         this.face = face;
     }
 
@@ -132,31 +128,84 @@ public class Card {
     }
 
     /**
-     * @return the mySuit
+     * @return the suit
      */
     public Suit getMySuit() {
-        return mySuit;
+        return getSuit();
     }
 
     /**
-     * @param mySuit the mySuit to set
+     * @param mySuit the suit to set
      */
     public void setMySuit(Suit mySuit) {
-        this.mySuit = mySuit;
+        this.setSuit(mySuit);
     }
 
     /**
-     * @return the myNumber
+     * @return the ordinal
      */
     public int getMyNumber() {
-        return myNumber;
+        return getOrdinal();
     }
 
     /**
-     * @param myNumber the myNumber to set
+     * @param myNumber the ordinal to set
      */
     public void setMyNumber(int myNumber) {
-        this.myNumber = myNumber;
+        this.setOrdinal(myNumber);
+    }
+
+    /**
+     * @return the suit
+     */
+    public Suit getSuit() {
+        return suit;
+    }
+
+    /**
+     * @param suit the suit to set
+     */
+    public void setSuit(Suit suit) {
+        this.suit = suit;
+    }
+
+    /**
+     * @return the ordinal
+     */
+    public int getOrdinal() {
+        return ordinal;
+    }
+
+    /**
+     * @param ordinal the ordinal to set
+     */
+    public void setOrdinal(int ordinal) {
+        this.ordinal = ordinal;
+    }
+
+    /**
+     * @return the value
+     */
+    public int getValue() {
+        return value;
+    }
+
+    /**
+     * @param value the value to set
+     */
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    /**
+     * @return the value
+     */
+    public int getWidth() {
+        if (face != null){
+            return this.face.getWidth(null);
+        } else {
+            return 0;
+        }
     }
 
 }
