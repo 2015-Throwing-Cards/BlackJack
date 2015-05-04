@@ -47,7 +47,7 @@ public class Deck {
     }
     
     public void loadDeck(){
-        BufferedImage cardSprites = (BufferedImage) ResourceTools.loadImageFromResource("resources/Cards.jpg");
+        BufferedImage cardSprites = (BufferedImage) ResourceTools.loadImageFromResource("resources/Cards.png");
         
         cards.add(new Card(Suit.Clubs, 1, 1, cardSprites.getSubimage(0, 0, 178, 260)));
         cards.add(new Card(Suit.Clubs, 2, 2, cardSprites.getSubimage(179, 0, 178, 260)));
