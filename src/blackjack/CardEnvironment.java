@@ -31,8 +31,8 @@ class CardEnvironment extends Environment {
     public void initializeEnvironment() {
         deck = new Deck();
         
-        playerHand = new Hand(new Point(200, 500));
-        dealerHand = new Hand(new Point(200, 200));
+        playerHand = new Hand(new Point(400, 400));
+        dealerHand = new Hand(new Point(400, 100));
         
         setBackground(ResourceTools.loadImageFromResource("resources/BlackJackTable.jpg"));
         
@@ -123,7 +123,7 @@ class CardEnvironment extends Environment {
             
             deck.loadDeck();
             deck.shuffle();
-            AudioPlayer.play("/resources/Shuffle.m4a");
+            AudioPlayer.play("/resources/cardshuffle.wav");
         }
     }
 
