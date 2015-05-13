@@ -22,105 +22,53 @@ import java.util.ArrayList;
  * @author diegocantu
  */
 class CardEnvironment extends Environment {
-        private Deck deck;
-//        Image card;
-        private Hand playerHand, dealerHand; 
-        
 
+    private Deck deck;
+//        Image card;
+    private Hand playerHand, dealerHand;
+ 
+    private Score score;
+    private Chips myChips;
+    
     @Override
     public void initializeEnvironment() {
+        score = new Score();
+        score.setPosition(new Point(100, 100));
+        
+        myChips = new Chips();
+
         deck = new Deck();
         
+
         playerHand = new Hand(new Point(400, 400));
         dealerHand = new Hand(new Point(400, 100));
-        
+
         setBackground(ResourceTools.loadImageFromResource("resources/BlackJackTable.jpg"));
-        
-//        card = cards.getSubimage(0, 0, 100, 100);
-//        deck = new ArrayList<>();
-//        deck.add(new Card(Suit.Clubs, 1, cards.getSubimage(0, 0, 178, 260)));
-//        deck.add(new Card(Suit.Clubs, 2, cards.getSubimage(179, 0, 178, 260)));
-//        deck.add(new Card(Suit.Clubs, 3, cards.getSubimage(358, 0, 178, 260)));
-//        deck.add(new Card(Suit.Clubs, 4, cards.getSubimage(537, 0, 178, 260)));
-//        deck.add(new Card(Suit.Clubs, 5, cards.getSubimage(716, 0, 178, 260)));
-//        deck.add(new Card(Suit.Clubs, 6, cards.getSubimage(895, 0, 178, 260)));
-//        deck.add(new Card(Suit.Clubs, 7, cards.getSubimage(1074, 0, 178, 260)));
-//        deck.add(new Card(Suit.Clubs, 8, cards.getSubimage(1253, 0, 178, 260)));
-//        deck.add(new Card(Suit.Clubs, 9, cards.getSubimage(1432, 0, 178, 260)));
-//        deck.add(new Card(Suit.Clubs, 10, cards.getSubimage(1611, 0, 178, 260)));
-//        deck.add(new Card(Suit.Clubs, 11, cards.getSubimage(1790, 0, 178, 260)));
-//        deck.add(new Card(Suit.Clubs, 12, cards.getSubimage(1969, 0, 178, 260)));
-//        deck.add(new Card(Suit.Clubs, 13, cards.getSubimage(2148, 0, 175, 260)));
-//        
-//        deck.add(new Card(Suit.Diamonds, 1, cards.getSubimage(0, 260, 178, 260)));
-//        deck.add(new Card(Suit.Diamonds, 2, cards.getSubimage(179,260, 178, 260)));
-//        deck.add(new Card(Suit.Diamonds, 3, cards.getSubimage(358, 260, 178, 260)));
-//        deck.add(new Card(Suit.Diamonds, 4, cards.getSubimage(537, 260, 178, 260)));
-//        deck.add(new Card(Suit.Diamonds, 5, cards.getSubimage(716, 260, 178, 260)));
-//        deck.add(new Card(Suit.Diamonds, 6, cards.getSubimage(895, 260, 178, 260)));
-//        deck.add(new Card(Suit.Diamonds, 7, cards.getSubimage(1074, 260, 178, 260)));
-//        deck.add(new Card(Suit.Diamonds, 8, cards.getSubimage(1253, 260, 178, 260)));
-//        deck.add(new Card(Suit.Diamonds, 9, cards.getSubimage(1432, 260, 178, 260)));
-//        deck.add(new Card(Suit.Diamonds, 10, cards.getSubimage(1611, 260, 178, 260)));
-//        deck.add(new Card(Suit.Diamonds, 11, cards.getSubimage(1790, 260, 178, 260)));
-//        deck.add(new Card(Suit.Diamonds, 12, cards.getSubimage(1969, 260, 178, 260)));
-//        deck.add(new Card(Suit.Diamonds, 13, cards.getSubimage(2148, 260, 175, 260)));
-//       
-//        
-//        
-//        deck.add(new Card(Suit.Hearts, 1, cards.getSubimage(0, 520, 178, 260)));
-//        deck.add(new Card(Suit.Hearts, 2, cards.getSubimage(179,520, 178, 260)));
-//        deck.add(new Card(Suit.Hearts, 3, cards.getSubimage(358, 520, 178, 260)));
-//        deck.add(new Card(Suit.Hearts, 4, cards.getSubimage(537, 520, 178, 260)));
-//        deck.add(new Card(Suit.Hearts, 5, cards.getSubimage(716, 520, 178, 260)));
-//        deck.add(new Card(Suit.Hearts, 6, cards.getSubimage(895, 520, 178, 260)));
-//        deck.add(new Card(Suit.Hearts, 7, cards.getSubimage(1074, 520, 178, 260)));
-//        deck.add(new Card(Suit.Hearts, 8, cards.getSubimage(1253, 520, 178, 260)));
-//        deck.add(new Card(Suit.Hearts, 9, cards.getSubimage(1432, 520, 178, 260)));
-//        deck.add(new Card(Suit.Hearts, 10, cards.getSubimage(1611, 520, 178, 260)));
-//        deck.add(new Card(Suit.Hearts, 11, cards.getSubimage(1790, 520, 178, 260)));
-//        deck.add(new Card(Suit.Hearts, 12, cards.getSubimage(1969, 520, 178, 260)));
-//        deck.add(new Card(Suit.Hearts, 13, cards.getSubimage(2148, 520, 175, 260)));
-//        
-//        
-//        deck.add(new Card(Suit.Spades, 1, cards.getSubimage(0, 780, 178, 260)));
-//        deck.add(new Card(Suit.Spades, 2, cards.getSubimage(179,780, 178, 260)));
-//        deck.add(new Card(Suit.Spades, 3, cards.getSubimage(358, 780, 178, 260)));
-//        deck.add(new Card(Suit.Spades, 4, cards.getSubimage(537, 780, 178, 260)));
-//        deck.add(new Card(Suit.Spades, 5, cards.getSubimage(716, 780, 178, 260)));
-//        deck.add(new Card(Suit.Spades, 6, cards.getSubimage(895, 780, 178, 260)));
-//        deck.add(new Card(Suit.Spades, 7, cards.getSubimage(1074, 780, 178, 260)));
-//        deck.add(new Card(Suit.Spades, 8, cards.getSubimage(1253, 780, 178, 260)));
-//        deck.add(new Card(Suit.Spades, 9, cards.getSubimage(1432, 780, 178, 260)));
-//        deck.add(new Card(Suit.Spades, 10, cards.getSubimage(1611, 780, 178, 260)));
-//        deck.add(new Card(Suit.Spades, 11, cards.getSubimage(1790, 780, 178, 260)));
-//        deck.add(new Card(Suit.Spades, 12, cards.getSubimage(1969, 780, 178, 260)));
-//        deck.add(new Card(Suit.Spades, 13, cards.getSubimage(2148, 780, 175, 260)));
 
     }
 
     @Override
     public void timerTaskHandler() {
-    
+
     }
 
     @Override
     public void keyPressedHandler(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_N){
+        if (e.getKeyCode() == KeyEvent.VK_N) {
             dealerHand.clear();
             playerHand.clear();
-            
+
             playerHand.addCards(deck.next(true));
             dealerHand.addCards(deck.next(true));
             playerHand.addCards(deck.next(true));
-        } else if (e.getKeyCode() == KeyEvent.VK_H){
+        } else if (e.getKeyCode() == KeyEvent.VK_H) {
             playerHand.addCards(deck.next(true));
-        } else if (e.getKeyCode() == KeyEvent.VK_D){
+        } else if (e.getKeyCode() == KeyEvent.VK_D) {
             dealerHand.addCards(deck.next(true));
-        } else if (e.getKeyCode() == KeyEvent.VK_S){
+        } else if (e.getKeyCode() == KeyEvent.VK_S) {
             dealerHand.clear();
             playerHand.clear();
-            
+
             deck.loadDeck();
             deck.shuffle();
             AudioPlayer.play("/resources/cardshuffle.wav");
@@ -129,24 +77,32 @@ class CardEnvironment extends Environment {
 
     @Override
     public void keyReleasedHandler(KeyEvent e) {
-    
+
     }
 
     @Override
     public void environmentMouseClicked(MouseEvent e) {
-    
+
     }
 
     @Override
     public void paintEnvironment(Graphics graphics) {
-        if (dealerHand != null){
+        if (dealerHand != null) {
             dealerHand.paint(graphics);
         }
-        
-        if (playerHand != null){
+
+        if (playerHand != null) {
             playerHand.paint(graphics);
         }
         
+
+        if (score != null) {
+             score.draw(graphics);
+        }
+        
+        if (myChips != null) {
+            myChips.draw(graphics);
+        }
         
 //        if (card != null){
 //            graphics.drawImage(card, 100, 20, this);
@@ -160,5 +116,5 @@ class CardEnvironment extends Environment {
 //            y += 12;
 //        }
     }
-    
+
 }
