@@ -22,5 +22,19 @@ public class Chip extends Actor {
         super(image, position, new Velocity(0, 0));
         this.value = value;
     }
+
+    /**
+     * @return the value
+     */
+    public int getValue() {
+        return value;
+    }
+
+    /**
+     * @param value the value to set
+     */
+    public void setValue(int value) {
+        this.value = value;
+    }
     
 }
