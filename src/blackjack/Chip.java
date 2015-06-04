@@ -49,6 +49,16 @@ public class Chip extends Actor {
     
     private static final BufferedImage chipSprites = (BufferedImage) ResourceTools.loadImageFromResource("resources/Blackjackchips.png");
     
+    public static Chip getChip(int value) {
+        for (ChipType type : ChipType.values()){
+            if (type.getValue() == value){
+                return getChip(type);
+            }
+            
+        }
+        return null;
+    }
+    
     public static Chip getChip(ChipType type) {
         switch (type){
             case CHIP_TYPE_5:

@@ -43,8 +43,7 @@ public class ChipCollection {
             }
         }
         
-        chips.add(new ChipCount(Chip.))
-        
+        chips.add(new ChipCount(Chip.getChip(value), count));
         return true;
     }
     
