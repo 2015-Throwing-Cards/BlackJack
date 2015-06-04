@@ -37,8 +37,9 @@ public class Chip extends Actor {
     
 //<editor-fold defaultstate="collapsed" desc="Constructors, Factory Methods">
     public static final ArrayList<Chip> chips = getChips();
+    private static BufferedImage chipSprites = (BufferedImage) ResourceTools.loadImageFromResource("resources/Blackjackchips.png");
     
-    public static ArrayList<Chip> getChips(){
+    public static final ArrayList<Chip> getChips(){
         ArrayList<Chip> newChips = new ArrayList<>();
         
         for (ChipType type : Chip.ChipType.values()){
@@ -46,8 +47,6 @@ public class Chip extends Actor {
         }
         return newChips;
     }
-    
-    private static final BufferedImage chipSprites = (BufferedImage) ResourceTools.loadImageFromResource("resources/Blackjackchips.png");
     
     public static Chip getChip(int value) {
         for (ChipType type : ChipType.values()){
@@ -60,6 +59,10 @@ public class Chip extends Actor {
     }
     
     public static Chip getChip(ChipType type) {
+        if (chipSprites == null){
+            chipSprites = (BufferedImage) ResourceTools.loadImageFromResource("resources/Blackjackchips.png");
+        }
+
         switch (type){
             case CHIP_TYPE_5:
                 return new Chip(chipSprites.getSubimage(300, 10, 200, 185), new Point(150, 150), type.getValue());
@@ -121,4 +124,5 @@ public class Chip extends Actor {
         this.value = value;
     }
 //</editor-fold>
+    
 }

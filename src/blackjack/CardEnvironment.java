@@ -8,14 +8,10 @@ package blackjack;
 import audio.AudioPlayer;
 import environment.Environment;
 import images.ResourceTools;
-import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 
 /**
  *
@@ -28,23 +24,20 @@ class CardEnvironment extends Environment {
     private Hand playerHand, dealerHand;
  
     private Score score;
-    private Chips myChips;
+//    private Chips myChips;
     
     @Override
     public void initializeEnvironment() {
         score = new Score();
         score.setPosition(new Point(100, 100));
         
-        myChips = new Chips();
-
+//        myChips = new Chips();
         deck = new Deck();
-        
 
         playerHand = new Hand(new Point(400, 400));
         dealerHand = new Hand(new Point(400, 100));
 
         setBackground(ResourceTools.loadImageFromResource("resources/BlackJackTable.jpg"));
-
     }
 
     @Override
@@ -100,8 +93,12 @@ class CardEnvironment extends Environment {
              score.draw(graphics);
         }
         
-        if (myChips != null) {
-            myChips.draw(graphics);
+//        if (myChips != null) {
+//            myChips.draw(graphics);
+//        }
+        
+        for (Chip chip : Chip.chips){
+            chip.paint(graphics);
         }
         
 //        if (card != null){

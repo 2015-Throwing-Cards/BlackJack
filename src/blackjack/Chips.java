@@ -28,16 +28,16 @@ public class Chips {
         chips.clear();
         loadChips();
     }
-    
-  public static final int CHIP_TYPE_1 = 1;
-  public static final int CHIP_TYPE_5 = 5;
-  public static final int CHIP_TYPE_10 = 10;
-  public static final int CHIP_TYPE_25 = 25;
-  public static final int CHIP_TYPE_50 = 50;
-  public static final int CHIP_TYPE_100 = 100;
-  public static final int CHIP_TYPE_500 = 500;
-  public static final int CHIP_TYPE_1000 = 1000;
-    
+
+    public static final int CHIP_TYPE_1 = 1;
+    public static final int CHIP_TYPE_5 = 5;
+    public static final int CHIP_TYPE_10 = 10;
+    public static final int CHIP_TYPE_25 = 25;
+    public static final int CHIP_TYPE_50 = 50;
+    public static final int CHIP_TYPE_100 = 100;
+    public static final int CHIP_TYPE_500 = 500;
+    public static final int CHIP_TYPE_1000 = 1000;
+
     private void loadChips() {
         BufferedImage chipSprites = (BufferedImage) ResourceTools.loadImageFromResource("resources/Blackjackchips.png");
 
@@ -50,11 +50,10 @@ public class Chips {
         chips.add(new Chip(chipSprites.getSubimage(600, 200, 200, 185), new Point(400, 400), CHIP_TYPE_500));
         chips.add(new Chip(chipSprites.getSubimage(100, 400, 200, 185), new Point(450, 450), CHIP_TYPE_1000));
     }
-    
-    
-    public Chip getChip(int value){
-        for (Chip chip : chips){
-            if (chip.getValue() == value){
+
+    public Chip getChip(int value) {
+        for (Chip chip : chips) {
+            if (chip.getValue() == value) {
                 return (Chip) chip.clone();
             }
         }
