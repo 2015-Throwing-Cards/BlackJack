@@ -39,17 +39,17 @@ public class Chip extends Actor {
     public static final ArrayList<Chip> chips = getChips();
     
     public static ArrayList<Chip> getChips(){
-        ArrayList<Chip> chips = new ArrayList<>();
+        ArrayList<Chip> newChips = new ArrayList<>();
         
         for (ChipType type : Chip.ChipType.values()){
-            chips.add(Chip.getChip(type));
+            newChips.add(Chip.getChip(type));
         }
-        return chips;
+        return newChips;
     }
     
     private static final BufferedImage chipSprites = (BufferedImage) ResourceTools.loadImageFromResource("resources/Blackjackchips.png");
     
-    private static Chip getChip(ChipType type) {
+    public static Chip getChip(ChipType type) {
         switch (type){
             case CHIP_TYPE_5:
                 return new Chip(chipSprites.getSubimage(300, 10, 200, 185), new Point(150, 150), type.getValue());

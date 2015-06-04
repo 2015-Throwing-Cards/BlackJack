@@ -27,23 +27,25 @@ public class ChipCollection {
      */
     public int getCollectionValue() {
         int value = 0;
-        
-        for (ChipCount chipCount : chips){
-            value += chipCount.getValue();
-        }
-        
+        value = chips.stream().map((chipCount) -> chipCount.getValue()).reduce(value, Integer::sum);
         return value;
     }
     
     /**
-     * @return the chips
+     * @param count
+     * @param value
      */
-    public void addChips() {
-        int value = 0;
-        
+    public boolean addChips(int count, int value) {
         for (ChipCount chipCount : chips){
-            value += chipCount.getValue();
+            if (chipCount.getChip().getValue() == value){
+                chipCount.add(count);
+                return true;
+            }
         }
+        
+        chips.add(new ChipCount(Chip.))
+        
+        return true;
     }
     
     /**
