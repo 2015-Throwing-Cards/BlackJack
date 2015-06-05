@@ -11,10 +11,12 @@ package blackjack;
  */
 public class ChipCount {
 
+//<editor-fold defaultstate="collapsed" desc="Constructors">
     public ChipCount(Chip chip, int count){
         this.chip = chip;
         this.count = count;
     }
+//</editor-fold>
     
 //<editor-fold defaultstate="collapsed" desc="Properties">
     private Chip chip;
@@ -60,6 +62,13 @@ public class ChipCount {
      */
     public void setCount(int count) {
         this.count = count;
+    }
+
+    /**
+     * @param count the count to set
+     */
+    public void add(int count) {
+        this.count += count;
     }
 //</editor-fold>
 }
